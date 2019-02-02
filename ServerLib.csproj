@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A87D84A4-93BF-4E78-8583-7004633230D8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ServerLib</RootNamespace>
+    <AssemblyName>ServerLib</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MetroFramework">
+      <HintPath>..\..\..\..\V2\UI\ServerUI\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Connection\Client.cs" />
+    <Compile Include="Connection\ConnectionHandle.cs" />
+    <Compile Include="Connection\DataPackages\Callback\CallbackDoSProtection.cs" />
+    <Compile Include="Connection\DataPackages\Callback\CallbackHandler.cs" />
+    <Compile Include="Connection\DataPackages\Callback\Template\Callback.cs" />
+    <Compile Include="Connection\DataPackages\EvaluatePackage.cs" />
+    <Compile Include="Connection\DataPackages\PackageAdministrator.cs" />
+    <Compile Include="Connection\DataPackages\PacketManager.cs" />
+    <Compile Include="Connection\DataPackages\Template\DataPackage.cs" />
+    <Compile Include="Connection\Evaluation\EvaluateDataExchangePacket.cs" />
+    <Compile Include="Connection\Handle\CommandResponder\HomeScreen.cs" />
+    <Compile Include="Connection\Handle\CommandResponder\SongList.cs" />
+    <Compile Include="Connection\Handle\Download\DownloadRequest.cs" />
+    <Compile Include="Connection\Handle\Download\EvaluateRequest.cs" />
+    <Compile Include="Connection\Handle\Download\ClientInterface.cs" />
+    <Compile Include="Connection\Handle\Login\LoginPurpose.cs" />
+    <Compile Include="Connection\Handle\TrafficHandler.cs" />
+    <Compile Include="Connection\Handle\Login\HandleClientLogin.cs" />
+    <Compile Include="Connection\Handle\Login\LoginCredentials.cs" />
+    <Compile Include="Connection\MaintenanceMode.cs" />
+    <Compile Include="Connection\Rank.cs" />
+    <Compile Include="Connection\ResourceProvider.cs" />
+    <Compile Include="Connection\Setup\SetupHandler.cs" />
+    <Compile Include="Crypto\Decrypt.cs" />
+    <Compile Include="Crypto\Encrypt.cs" />
+    <Compile Include="Crypto\Resources.cs" />
+    <Compile Include="DynamicHomeScreen\Manager.cs" />
+    <Compile Include="DynamicHomeScreen\Sort\SortItem.cs" />
+    <Compile Include="DynamicHomeScreen\Sort\SortManager.cs" />
+    <Compile Include="Events\Args\EventArgs.cs" />
+    <Compile Include="Events\ClientEvents\ClientDisconnected.cs" />
+    <Compile Include="Events\ClientEvents\ClientLoggedIn.cs" />
+    <Compile Include="Events\ClientEvents\EventHandler.cs" />
+    <Compile Include="Events\ClientEvents\LoginFailed.cs" />
+    <Compile Include="Events\ClientEvents\PackageReceived.cs" />
+    <Compile Include="Events\DataPackageEvent\BugReport.cs" />
+    <Compile Include="Events\DataPackageEvent\Callback.cs" />
+    <Compile Include="Events\DataPackageEvent\DataExchange.cs" />
+    <Compile Include="Events\DataPackageEvent\DownloadRequest.cs" />
+    <Compile Include="Events\DataPackageEvent\EventHandler.cs" />
+    <Compile Include="Events\DataPackageEvent\Message.cs" />
+    <Compile Include="Events\DataPackageEvent\SentFileToClient.cs" />
+    <Compile Include="Events\DataPackageEvent\UploadRequest.cs" />
+    <Compile Include="Events\ErrorEvents\ConnectionError.cs" />
+    <Compile Include="Events\ErrorEvents\DownloadError.cs" />
+    <Compile Include="Events\ErrorEvents\EvaluationError.cs" />
+    <Compile Include="Events\ErrorEvents\EventHandler.cs" />
+    <Compile Include="Events\ErrorEvents\IOError.cs" />
+    <Compile Include="Events\ErrorEvents\NetworkStreamError.cs" />
+    <Compile Include="Events\ServerEvents\EventHandler.cs" />
+    <Compile Include="Events\ServerEvents\Maintenance.cs" />
+    <Compile Include="Events\ServerEvents\MetaFileInformation.cs" />
+    <Compile Include="Events\ServerEvents\ServerStarted.cs" />
+    <Compile Include="Events\ServerEvents\SongListUpdated.cs" />
+    <Compile Include="FileManager\DirectoryAvailabilityChecker.cs" />
+    <Compile Include="FileManager\ErrorHandler.cs" />
+    <Compile Include="FileManager\FileAvailabilityChecker.cs" />
+    <Compile Include="FileManager\InformationProvider.cs" />
+    <Compile Include="FileManager\PathResources.cs" />
+    <Compile Include="FileManager\UserFiles.cs" />
+    <Compile Include="GUI\AddFileDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\AddFileDialog.Designer.cs">
+      <DependentUpon>AddFileDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MetaData\MetaFileAdministrator.cs" />
+    <Compile Include="MetaData\MetaFileManager.cs" />
+    <Compile Include="MetaData\MetaFiles.cs" />
+    <Compile Include="MetaData\Template\MetaFile.cs" />
+    <Compile Include="Resources\ConnectionResources.cs" />
+    <Compile Include="Resources\HomeScreenResources.cs" />
+    <Compile Include="Resources\Public Resources\ResourceInputInterface.cs" />
+    <Compile Include="Resources\Public Resources\ResourceProvider.cs" />
+    <Compile Include="Resources\Services.cs" />
+    <Compile Include="Resources\XML.cs" />
+    <Compile Include="ServerHandle.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserProfiles\Manager.cs" />
+    <Compile Include="UserProfiles\Template\UserProfile.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="GUI\AddFileDialog.resx">
+      <DependentUpon>AddFileDialog.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
